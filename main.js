@@ -1,13 +1,15 @@
-const box1 = document.querySelector('.box1');
-const box2 = document.querySelector('.box2');
-const box3 = document.querySelector('.box3');
 
-box1.addEventListener('click', e=> changeBg(box1))
+class Box {
+    constructor(selector){
+        this.el = document.querySelector(selector);  
+        this.el.addEventListener('click', ()=>this.changeBg(this.el) );    
+    }
 
-box2.addEventListener('click', e=> changeBg(box2))
-
-box3.addEventListener('click', e=> changeBg(box3))
-
-function changeBg(selector){
-    selector.style.backgroundColor = 'hotpink';
+    changeBg(selector){
+        selector.style.backgroundColor = 'hotpink';
+    }
 }
+
+new Box('.box1');
+new Box('.box2');
+new Box('.box3');
